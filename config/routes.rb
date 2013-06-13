@@ -1,6 +1,19 @@
 MovieReview::Application.routes.draw do
+  get "main/index"
+
   devise_for :users
+
   resources :movies
+  resources :movie_likes
+  resources :movie_views
+  resources :reviews
+  resources :review_likes
+  resources :review_views
+  resources :users
+
+  root :to => "main#index"
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
