@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe ReviewLike do
+describe UserController do
 
 end
