@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20130613212616) do
     t.text     "summary"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.integer  "contributer_id"
+    t.integer  "contributor_id"
   end
 
   create_table "review_likes", :force => true do |t|
