@@ -1,0 +1,23 @@
+<h1>Movie Listings</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Genre</th>
+    <th>Director</th>
+    <th>Summary</th>
+  </tr>
+
+<% @events.each do |event| %>
+  <tr>
+    <td><%= movie.title %></td>
+    <td><%= movie.year %></td>
+    <td><%= movie.genre %></td>
+    <td><%= movie.director %></td>
+    <td><%= movie.summary %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>

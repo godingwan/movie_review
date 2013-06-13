@@ -1,0 +1,8 @@
+<%= simple_form_for(@movie) do |f| %>
+  <%= f.input :title, required: true, label: 'Title' %>
+  <%= f.input :year, required: true, label: 'Year' %>
+  <%= f.input :genre, required: true, label: 'Genre' %>
+  <%= f.input :director, required: true, label: 'Director' %>
+  <%= f.input :summary, required: true, label: 'Summary' %>
+  <%= f.button :submit %>
+<% end %>
