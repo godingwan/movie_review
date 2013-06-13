@@ -12,6 +12,14 @@ describe 'user creating an account' do
 
     click_button "Sign up"
 
-    expect(page).to have_content("user created")
+    expect(page).to have_content("You have signed up successfully")
+  end
+
+  it "checks that user isn't created when fields aren't filled" do
+    visit '/users/sign_up'
+
+    click_button "Sign up"
+
+    expect(page).to have_content("name can't be blank")
   end
 end
