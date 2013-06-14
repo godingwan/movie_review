@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :reviews, inverse_of: :user
   has_many :review_likes, inverse_of: :user
   has_many :review_views, inverse_of: :user
-  has_many :movies, inverse_of: :user
+  has_many :movies, inverse_of: :contributor, foreign_key: :contributor_id
   has_many :movies_likes, inverse_of: :user
   has_many :movies_views, inverse_of: :user
 

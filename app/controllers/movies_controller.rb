@@ -13,7 +13,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(params[:movie])
+    @movie = current_user.movies.build(params[:movie])
+    # @movie = Movie.new(params[:movie])
+    # @movie.contributor_id = current_user.id
 
     if @movie.save
       flash[:notice] = "Movie was created"
