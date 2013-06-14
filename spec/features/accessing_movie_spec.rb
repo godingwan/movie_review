@@ -15,7 +15,7 @@ describe 'user can see more info on a movie' do
     visit movies_path
 
     click_link "Show"
-    expect(page).to have_content("hello")
+    expect(page).to have_content(movie.title)
     expect(page).to have_content("2013")
     expect(page).to have_content("documentary")
     expect(page).to have_content("bob")
