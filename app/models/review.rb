@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
   attr_accessible :body, :score, :contributor_id, :movie_id
 
-  belongs_to :contributer, :class_name => "User"
+  belongs_to :contributor, :class_name => "User"
   belongs_to :movie
 
   has_many :review_views
