@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :movie do
     title "hello"
-    year "1984"
+    year "2013"
     genre "documentary"
     director "bob"
     summary "good story"

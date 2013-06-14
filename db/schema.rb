@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130613212616) do
+ActiveRecord::Schema.define(:version => 20130613214602) do
 
   create_table "movie_likes", :force => true do |t|
     t.datetime "created_at", :null => false
