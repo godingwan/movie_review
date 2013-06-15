@@ -12,3 +12,18 @@
 
 <p>Summary</p>
 <%= @movie.summary %>
+
+<p / >
+
+<div class="row">
+    <table class="table table-striped">
+      <% @movie.reviews.each do |review| %>
+        <tr>
+          <td><%= review.score %></td>
+          <td><%= review.body %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>
+
+<p><%= render "reviews/form" %></p>
