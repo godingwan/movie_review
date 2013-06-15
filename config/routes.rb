@@ -3,7 +3,9 @@ MovieReview::Application.routes.draw do
 
   devise_for :users
 
-  resources :movies
+  resources :movies do
+    resources :reviews
+  end
   resources :movie_likes
   resources :movie_views
   resources :reviews
@@ -11,7 +13,7 @@ MovieReview::Application.routes.draw do
   resources :review_views
   resources :users
 
-  root :to => "main#index"
+  root :to => "movies#index"
 
 
   # The priority is based upon order of creation:

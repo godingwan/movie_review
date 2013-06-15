@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe 'user can see all the movies' do
+	before(:each) do
+    Movie.destroy_all
+  end
   it 'checks that movies are shown' do
     movie1 = FactoryGirl.create(:movie)
     movie2 = FactoryGirl.create(:movie)
