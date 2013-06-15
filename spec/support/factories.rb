@@ -18,4 +18,12 @@ FactoryGirl.define do
     movie_id "1"
     contributor_id "1"
   end
+
+  factory :user do
+    first_name "a"
+    last_name "e"
+    email "a@a.com"
+    password "123456789"
+    password_confirmation "123456789"
+  end
 end
