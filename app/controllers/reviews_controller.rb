@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		@review = @movie.reviews.new(params[:review])
+		@review = @movie.reviews.build(params[:review])
 		@review.contributor_id = current_user.id
 
 		if @review.save

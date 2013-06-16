@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @review = Review.new
+    @movie_like = MovieLike.new
   end
 
   def create

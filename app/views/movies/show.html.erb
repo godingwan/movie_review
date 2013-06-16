@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
 <p>Title</p>
 <%= @movie.title %>
 
@@ -13,7 +17,10 @@
 <p>Summary</p>
 <%= @movie.summary %>
 
-<p / >
+<p />
+
+<p><%= @movie.movie_likes.count %> users have liked this movie.</p>
+<p><%= render "movie_likes/form" %></p>
 
 <div class="row">
     <table class="table table-striped">
