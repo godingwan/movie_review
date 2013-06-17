@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'User Page' do
+
+	let(:user) {FactoryGirl.create(:user)}
+
+
 	before(:each) do
     Movie.destroy_all
     Review.destroy_all
@@ -40,4 +44,11 @@ describe 'User Page' do
 		click_link "Pretty Good Movie"
 		expect(page).to have_content("A cop turns to a mystical cat lady")
 	end
+
+	it 'I want to see my own show page' do
+
+
+	end
+
+
 end
