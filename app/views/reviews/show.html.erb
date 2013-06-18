@@ -1,0 +1,5 @@
+<div><%= @review.score %><br />
+<%= @review.body %> </div>
+
+<p><%= @review.review_likes.count %> users have liked this review.</p>
+<p><%= render "review_likes/form" %></p>

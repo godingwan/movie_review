@@ -19,6 +19,7 @@ class ReviewsController < ApplicationController
 
 	def show
 		@review = @movie.reviews.find(params[:id])
+		@review_like = ReviewLike.new
 	end
 
 	private

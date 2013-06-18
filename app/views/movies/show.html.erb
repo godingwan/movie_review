@@ -23,7 +23,7 @@
       <% @movie.reviews.each do |review| %>
         <tr>
           <td><%= review.score %></td>
-          <td><%= review.body %></td>
+          <td><%= link_to review.body, movie_review_path(@movie, review) %></td>
         </tr>
       <% end %>
     </table>
