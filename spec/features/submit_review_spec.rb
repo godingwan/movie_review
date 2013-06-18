@@ -13,8 +13,8 @@ describe "When viewing a movie i want to add a review" do
 
   it "I should have a form to add a review" do
     FactoryGirl.create(:movie)
-    visit '/'
-    click_link 'Show'
+    visit root_path
+    click_link 'Details/Reviews'
     expect(page).to have_content("Movie Score")
     expect(page).to have_content("Review")
   end
@@ -22,7 +22,8 @@ describe "When viewing a movie i want to add a review" do
   it 'and I should be redirected back to the movie page after submitting a valid review form.' do
   	FactoryGirl.create(:movie)
     sign_in_as(user)
-  	click_link 'Show'
+    visit root_path
+  	click_link 'Details/Reviews'
   	fill_in "Movie Score", with: "1"
   	fill_in "Review", with: "This movie was so bad that I fell asleep."
   	click_button "Create Review"

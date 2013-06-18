@@ -1,3 +1,24 @@
+
+<div class="row">
+	<h3>Last 3 Movies Added</h3>
+	<table>
+		<tr>
+			<td>Title</td>
+			<td>Added at</td>
+		</tr>
+
+
+		<% @last_3_movies_added.each do |movie| %>
+		<tr>
+			<td><%= movie.title %></td>
+			<td><%= movie.created_at %></td>
+		</tr>
+		<% end %>
+
+	</table>
+</div>
+
+
 <div class="row">
     <table class="table table-striped">
       <% current_user.movie_likes.each do |like| %>
