@@ -6,7 +6,8 @@ describe 'Reviews' do
 	it 'should be listed on their respective movie page.' do
 		FactoryGirl.create(:review)
     sign_in_as(user)
-		click_link "Show"
+    visit root_path
+		click_link "Details/Reviews"
 		fill_in "Movie Score", with: "5"
 		fill_in "Review", with: "Best movie ever."
 		click_button "Create Review"
