@@ -9,11 +9,7 @@ require 'spec_helper'
 # * I must fill in all necessary information for the review to be submitted (name, review text)
 
 describe "When viewing a movie i want to add a review" do
-
-	before(:each) do
-		Movie.destroy_all
-		User.destroy_all
-	end
+  let(:user) { FactoryGirl.create(:user) }
 
 	let(:simulate_user_log_in) do
 		visit new_user_session_path
@@ -32,8 +28,7 @@ describe "When viewing a movie i want to add a review" do
 
   it 'and I should be redirected back to the movie page after submitting a valid review form.' do
   	FactoryGirl.create(:movie)
-  	FactoryGirl.create(:user)
-  	simulate_user_log_in
+    sign_in_as(user)
   	click_link 'Show'
   	fill_in "Movie Score", with: "1"
   	fill_in "Review", with: "This movie was so bad that I fell asleep."

@@ -7,11 +7,10 @@ class MovieLikesController < ApplicationController
 	def create
 		@movie = Movie.find(params[:movie_id])
 		@movie_like = @movie.movie_likes.build(params[:movie_like])
-		@movie_like.user_id = current_user.id
+		@movie_like.user = current_user
 
 		if @movie_like.save
-      flash[:notice] = "You have liked this movie."
-      redirect_to movie_path(@movie)
+      redirect_to movie_path(@movie), notice: "You have liked this movie."
     else
       render action: "new"
    	end
