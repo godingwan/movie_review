@@ -36,4 +36,7 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Include the AuthenticationHelper in the setup of our test suite
+  # config.include AuthenticationHelper
 end
