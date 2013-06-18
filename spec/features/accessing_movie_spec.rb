@@ -14,7 +14,7 @@ describe 'user can see more info on a movie' do
     movie = FactoryGirl.create(:movie)
     visit movies_path
 
-    click_link "Show"
+    click_link "Details/Reviews"
     expect(page).to have_content(movie.title)
     expect(page).to have_content("2013")
     expect(page).to have_content("Documentary")
