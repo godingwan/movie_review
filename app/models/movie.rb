@@ -5,7 +5,7 @@ class Movie < ActiveRecord::Base
 
   has_many :reviews, inverse_of: :movie
   has_many :movie_views, inverse_of: :movie
-  has_many :movie_likes, inverse_of: :movie, foreign_key: :movie_id
+  has_many :movie_likes, inverse_of: :movie
 
   validates_presence_of :director, :genre, :summary, :title, :year, :contributor_id
 end

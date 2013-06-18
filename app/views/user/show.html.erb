@@ -1,11 +1,8 @@
-<%= params %>
-
 <div class="row">
     <table class="table table-striped">
       <% current_user.movie_likes.each do |like| %>
         <tr>
-        	<% movie = Movie.find(like.movie_id) %>
-          <td><%= link_to "#{movie.title}", movie_path(movie.id)  %></td>
+          <td><%= link_to like.movie.title, movie_path(like.movie)  %></td>
         </tr>
       <% end %>
     </table>

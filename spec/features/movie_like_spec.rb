@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe 'Movie Like' do
-	before(:each) do
-    Movie.destroy_all
-    Review.destroy_all
-    User.destroy_all
-  end
+  let(:user) { FactoryGirl.create(:user) }
 
 	let(:simulate_user_log_in) do
 		visit new_user_session_path
@@ -16,11 +12,9 @@ describe 'Movie Like' do
 
 	it "after liking a movie, I will be redirected back to the respective movie's page." do
 		FactoryGirl.create(:movie)
-		FactoryGirl.create(:user)
-		simulate_user_log_in
+		sign_in_as(user)
 		click_link "Show"
 		click_button "Like this Movie"
 		expect(page).to have_content("You have liked this movie.")
 	end
-
 end
