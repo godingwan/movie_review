@@ -1,12 +1,7 @@
 require 'spec_helper'
 
 describe 'Reviews' do
-
-	before(:each) do
-    Movie.destroy_all
-    Review.destroy_all
-    User.destroy_all
-  end
+  let(:user) { FactoryGirl.create(:user) }
 
   let(:simulate_user_log_in) do
 		visit new_user_session_path
@@ -18,8 +13,7 @@ describe 'Reviews' do
 	it 'should be listed on their respective movie page.' do
 		FactoryGirl.create(:movie)
 		FactoryGirl.create(:review)
-		FactoryGirl.create(:user)
-		simulate_user_log_in
+    sign_in_as(user)
 		click_link "Show"
 		fill_in "Movie Score", with: "5"
 		fill_in "Review", with: "Best movie ever."
