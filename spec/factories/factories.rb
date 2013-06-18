@@ -1,19 +1,27 @@
 FactoryGirl.define do
-  sequence :movie do |name|
-    "Generic Blockbuster Movie Number #{name}"
-  end
+  # sequence :movie do |name|
+  #   "Generic Blockbuster Movie Number #{name}"
+  # end
 
   sequence :movie_like do |like|
     "#{like}"
   end
 
+  # movie = FactoryGirl.create(:movie)
+  # movie.contributor #=> User
+
+  # user =  FactoryGirl.create(:user)
+  # movie = FactoryGirl.create(:movie,
+  #   title: "blah")
+
   factory :movie do
-    title { generate(:movie) }
+    # title { generate(:movie) }
+    sequence(:title) { |n| "Fake #{n} Title" }
     year "2013"
     genre "Documentary"
     director "Bob Saget"
     summary "A cop turns to a mystical cat lady to convert into a ninja commando to save the world from a diabolical turtle hellbent on melting Antarctica."
-    contributor_id "1"
+    association :contributor, factory: :user
   end
 
   factory :movie_for_like_test1, :class => Movie do
@@ -22,7 +30,8 @@ FactoryGirl.define do
     genre "Documentary"
     director "Bob Saget"
     summary "A cop turns to a mystical cat lady to convert into a ninja commando to save the world from a diabolical turtle hellbent on melting Antarctica."
-    contributor_id "1"
+    # contributor_id "1"
+    association :contributor, factory: :user
     id "500"
   end
 
@@ -56,7 +65,9 @@ FactoryGirl.define do
   factory :user do
     first_name "a"
     last_name "e"
-    email "a@a.com"
+    # Email should be unique for each user
+    sequence(:email) { |n| "user#{n}@example.com" }
+    # email "a@a.com"
     password "123456789"
     password_confirmation "123456789"
   end
@@ -71,8 +82,9 @@ FactoryGirl.define do
   end
 
   factory :movie_like do
-    user_id "1"
-    movie_id { generate(:movie_like) }
+    association :user
+    association :movie
+    # movie_id { generate(:movie_like) }
   end
 
   factory :movie_like_specific1, :class => MovieLike do
