@@ -20,7 +20,10 @@
 <p />
 
 <p><%= @movie.movie_likes.count %> users have liked this movie.</p>
-<p><%= render "movie_likes/form" %></p>
+
+<%= render "movie_likes/form",
+  movie: @movie,
+  movie_like: @movie_like %>
 
 <div class="row">
     <table class="table table-striped">
