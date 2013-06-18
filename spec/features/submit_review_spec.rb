@@ -11,13 +11,6 @@ require 'spec_helper'
 describe "When viewing a movie i want to add a review" do
   let(:user) { FactoryGirl.create(:user) }
 
-	let(:simulate_user_log_in) do
-		visit new_user_session_path
-  	fill_in "Email", with: "a@a.com"
-  	fill_in "Password", with: "123456789"
-  	click_button "Sign in"
-	end
-
   it "I should have a form to add a review" do
     FactoryGirl.create(:movie)
     visit '/'
