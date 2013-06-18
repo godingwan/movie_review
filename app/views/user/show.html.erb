@@ -7,3 +7,13 @@
       <% end %>
     </table>
 </div>
+<br />
+<div class="row">
+    <table class="table table-striped">
+      <% current_user.review_likes.each do |like| %>
+        <tr>
+          <td><%= link_to like.review.body, movie_review_path(like.review.movie, like.review)  %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>

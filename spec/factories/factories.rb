@@ -18,7 +18,7 @@ FactoryGirl.define do
 
   factory :review do
     score "5"
-    body "this is the review"
+    sequence(:body) { |n| "This movie #{n} was so bad that I fell asleep." }
     association :movie
     association :contributor, factory: :user
   end
@@ -34,5 +34,10 @@ FactoryGirl.define do
   factory :movie_like do
     association :user
     association :movie
+  end
+
+  factory :review_like do
+    association :user
+    association :review
   end
 end

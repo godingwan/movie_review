@@ -8,8 +8,11 @@ MovieReview::Application.routes.draw do
     resources :movie_likes
   end
 
+  resources :reviews do
+    resources :review_likes
+  end
+
   resources :movie_views
-  resources :review_likes
   resources :review_views
   resources :users, :controller => "user"
 
