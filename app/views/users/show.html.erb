@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="span12">
+    <div class="current-user-box">
+      <div class="current-user-display">
+        <div class='row'>
+          <div class='span5'>
+           <%= current_user.first_name + " " + current_user.last_name %>
+          </div>
+          <div class='span6'>
+            Last logged in at:  <%= current_user.last_sign_in_at %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class='span12'>
+    <div class='three-box-titles'>Last 3 Movies I Looked At</div>
+    <table class="table table-striped">
+      <% current_user.review_likes.each do |like| %>
+        <tr>
+          <td><%= link_to like.review.body, movie_review_path(like.review.movie, like.review)  %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>
+
+<div class="row">
+  <div class='span12'>
+  	<div class='three-box-titles'>Last 3 Movies Added</div>
+  	<table class='table'>
+  		<tr>
+  			<td>Title</td>
+  			<td>Added at</td>
+  		</tr>
+  		<% @last_3_movies_added.each do |movie| %>
+  		<tr>
+  			<td><%= movie.title %></td>
+  			<td><%= movie.created_at %></td>
+  		</tr>
+  		<% end %>
+  	</table>
+  </div>
+</div>
+
+<div class="row">
+  <div class='span12'>
+    <div class='three-box-titles'>Last 3 Movies Reviewed</div>
+    <table class="table">
+      <% current_user.movie_likes.each do |like| %>
+        <tr>
+          <td><%= link_to like.movie.title, movie_path(like.movie)  %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
