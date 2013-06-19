@@ -14,7 +14,9 @@ MovieReview::Application.routes.draw do
 
   resources :movie_views
   resources :review_views
-  resources :users, :controller => "user"
+
+  resources :users
+  # resources :users, :controller => "users"
 
 
   # The priority is based upon order of creation:
