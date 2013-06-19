@@ -16,6 +16,23 @@
 		<% end %>
 
 	</table>
+
+  <h3>Last 3 Movies Viewed</h3>
+  <table>
+    <tr>
+      <td>Title</td>
+      <td>Viewed at</td>
+    </tr>
+
+
+    <% @last_3_movies_viewed.each do |view| %>
+    <tr>
+      <td><%= link_to view.movie.title, movie_path(view.movie) %></td>
+      <td><%= view.created_at %></td>
+    </tr>
+    <% end %>
+
+  </table>
 </div>
 
 
