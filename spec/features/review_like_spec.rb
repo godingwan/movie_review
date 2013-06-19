@@ -6,7 +6,8 @@ describe 'Review Like' do
 	it "after liking a review, I will be redirected back to the respective review's page" do
 		review = FactoryGirl.create(:review)
 		sign_in_as(user)
-		click_link "Show"
+    visit '/'
+		click_link "Details/Reviews"
 		click_link "#{review.body}"
 		click_button "Like this Review"
 		expect(page).to have_content("You have liked this review.")

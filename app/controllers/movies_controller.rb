@@ -12,6 +12,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     @review = Review.new
     @movie_like = MovieLike.new
+    @movie.add_recent_movie_view(current_user)
   end
 
   def create
