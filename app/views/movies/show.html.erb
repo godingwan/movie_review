@@ -1,32 +1,29 @@
-<p>Title</p>
-<%= @movie.title %>
 
-<p>Year</p>
-<%= @movie.year %>
 
-<p>Genre</p>
-<%= @movie.genre %>
+<div class='row span12'></div>
 
-<p>Director</p>
-<%= @movie.director %>
+<div class='row'>
+		<div class='span6'>
+			<p>Title:  <%= @movie.title %></p>
+			<p>Year:  <%= @movie.year %></p>
+			<p>Genre:  <%= @movie.genre %></p>
+			<p>Director:  <%= @movie.director %></p>
+			<p>Summary:  <%= @movie.summary %></p>
 
-<p>Summary</p>
-<%= @movie.summary %>
+			<p><%= @movie.movie_likes.count %> users have liked this movie.</p>
+			<p><%= render "movie_likes/form" %></p>
 
-<p />
+	    <table class="table table-striped">
+	      <% @movie.reviews.each do |review| %>
+	        <tr>
+	          <td><%= review.score %></td>
+	          <td><%= link_to review.body, movie_review_path(@movie, review) %></td>
+	        </tr>
+	      <% end %>
+	    </table>
+	  </div>
+	  <div class='span6'>
+	   	<%= render "reviews/form" %>
+		</div>
 
-<p><%= @movie.movie_likes.count %> users have liked this movie.</p>
-<p><%= render "movie_likes/form" %></p>
-
-<div class="row">
-    <table class="table table-striped">
-      <% @movie.reviews.each do |review| %>
-        <tr>
-          <td><%= review.score %></td>
-          <td><%= link_to review.body, movie_review_path(@movie, review) %></td>
-        </tr>
-      <% end %>
-    </table>
 </div>
-
-<p><%= render "reviews/form" %></p>
