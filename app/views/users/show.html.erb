@@ -42,7 +42,7 @@
     <% @last_3_reviews_viewed.each do |view| %>
     <tr>
 
-      <td><%= view.review.body %></td>
+      <td><%= link_to view.review.body, movie_review_path(view.review.movie, view.review) %></td>
       <td><%= view.created_at %></td>
     </tr>
     <% end %>
@@ -51,7 +51,7 @@
 
 <div class="row">
   <div class='span12'>
-    <div class='three-box-titles'>Last 3 Movies I Looked At</div>
+    <div class='three-box-titles'>Reviews I Have Liked</div>
     <table class="table table-striped">
       <% current_user.review_likes.each do |like| %>
         <tr>
@@ -63,25 +63,7 @@
 
 <div class="row">
   <div class='span12'>
-  	<div class='three-box-titles'>Last 3 Movies Added</div>
-  	<table class='table'>
-  		<tr>
-  			<td>Title</td>
-  			<td>Added at</td>
-  		</tr>
-  		<% @last_3_movies_added.each do |movie| %>
-  		<tr>
-  			<td><%= movie.title %></td>
-  			<td><%= movie.created_at %></td>
-  		</tr>
-  		<% end %>
-  	</table>
-  </div>
-</div>
-
-<div class="row">
-  <div class='span12'>
-    <div class='three-box-titles'>Last 3 Movies Reviewed</div>
+    <div class='three-box-titles'>Movies I Have Liked</div>
     <table class="table">
       <% current_user.movie_likes.each do |like| %>
         <tr>
