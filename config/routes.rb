@@ -19,9 +19,8 @@ MovieReview::Application.routes.draw do
 
   resources :users
 
-  namespace :admin do
-    resources :users
-  end
+  resources :admins
+
   # resources :users, :controller => "users"
 
 

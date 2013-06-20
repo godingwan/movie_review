@@ -10,9 +10,7 @@
 			<p>Director:  <%= @movie.director %></p>
 			<p>Summary:  <%= @movie.summary %></p>
 
-			<% if can? :read, Admin %>
-				<p><%= @movie.movie_likes.count %> users have liked this movie.</p>
-			<% end %>
+			<p><%= @movie.movie_likes.count %> users have liked this movie.</p>\
 
 			<p><%= render "movie_likes/form" %></p>
 

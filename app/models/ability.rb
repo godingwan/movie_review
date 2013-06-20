@@ -7,7 +7,6 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.role == 'admin'
         can :manage, :all
-        can :see_like_count
       elsif user.role == 'user'
         can :manage, [Movie, MovieLike, MovieView, Review, ReviewView, ReviewLike, User]
       else
