@@ -1,3 +1,43 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header-objects {
+	font-size: 1.2em;
+	font-style: bold;
+
+	li {
+		list-style-type: none;
+		display:inline-block;
+	}
+}
+
+.page-description-banner {
+	text-align: center;
+	font-size: 2em;
+	font-style: bold;
+	padding:30px 10px;
+}
+
+.registration-form {
+	text-align: center;
+	h2 {
+		padding:50px;
+	}
+}
+
+.current-user-box {
+	border: 5px solid ;
+	padding: 30px 30px 30px 30px;
+	margin: 12px 12px 12px 12px;
+}
+
+.three-box-titles {
+		margin: 0;
+		text-align: center;
+		font-size: 2em;
+		font-weight: bold;
+		padding:20px 0;
+}
+
+
