@@ -10,7 +10,8 @@ class Movie < ActiveRecord::Base
   validates_presence_of :director, :genre, :summary, :title, :year, :contributor_id
 
   def add_recent_movie_view(user)
-    @movie_view = movie_views.build
+    @movie_view = self.movie_views.build
+    # @movie_view = MovieView.new(movie: self)
     @movie_view.user = user
     @movie_view.save
   end

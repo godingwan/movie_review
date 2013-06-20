@@ -1,39 +1,58 @@
 
 <div class="row">
 	<h3>Last 3 Movies Added</h3>
-	<table>
+	<table class="table table-striped">
 		<tr>
 			<td>Title</td>
 			<td>Added at</td>
 		</tr>
-
-
 		<% @last_3_movies_added.each do |movie| %>
 		<tr>
 			<td><%= movie.title %></td>
 			<td><%= movie.created_at %></td>
 		</tr>
 		<% end %>
-
 	</table>
+</div>
 
+<div class="row">
   <h3>Last 3 Movies Viewed</h3>
-  <table>
+  <table class="table table-striped">
     <tr>
       <td>Title</td>
       <td>Viewed at</td>
     </tr>
-
-
     <% @last_3_movies_viewed.each do |view| %>
     <tr>
       <td><%= link_to view.movie.title, movie_path(view.movie) %></td>
       <td><%= view.created_at %></td>
     </tr>
     <% end %>
-
   </table>
 </div>
+
+<div class="row">
+  <h3>Last 3 Reviews Viewed</h3>
+
+   <table class="table table-striped">
+    <tr>
+      <td>Review</td>
+      <td>Viewed at</td>
+    </tr>
+
+    <% @last_3_reviews_viewed.each do |view| %>
+    <tr>
+
+      <td><%= view.review.body %></td>
+      <td><%= view.created_at %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+
+
+
 
 
 <div class="row">
