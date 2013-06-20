@@ -14,6 +14,4 @@ class Review < ActiveRecord::Base
   	@review_view.user = user
   	@review_view.save
   end
-
-
 end
