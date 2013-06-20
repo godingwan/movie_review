@@ -9,6 +9,8 @@ class ReviewsController < ApplicationController
 		@review = @movie.reviews.build(params[:review])
 		@review.contributor_id = current_user.id
 
+
+
 		if @review.save
 			flash[:notice] = "Your review was posted."
 			redirect_to @movie
@@ -20,6 +22,7 @@ class ReviewsController < ApplicationController
 	def show
 		@review = @movie.reviews.find(params[:id])
 		@review_like = ReviewLike.new
+		@review.add_recent_review_view(current_user)
 	end
 
 	private
