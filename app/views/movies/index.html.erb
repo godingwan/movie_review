@@ -1,21 +1,27 @@
-<h1>Movie Listings</h1>
 
-<table>
+<div class='row span12'>
+  <div class='page-description-banner'>Movie Listings</div>
+</div>
+
+<table class='table'>
   <tr>
+    <th></th>
     <th>Title</th>
     <th>Year</th>
     <th>Genre</th>
     <th>Director</th>
     <th>Summary</th>
+    <th></th>
   </tr>
 
 <% @movies.each do |movie| %>
   <tr>
+    <td><%= link_to 'Like Movie', movie,  :class => 'btn btn-small btn-primary' %></td>
     <td><%= movie.title %></td>
     <td><%= movie.year %></td>
     <td><%= movie.genre %></td>
     <td><%= movie.director %></td>
     <td><%= movie.summary %></td>
-    <td><%= link_to 'Details/Reviews', movie %></td>
+    <td><%= link_to 'Details/Reviews', movie, :class => 'button btn-small btn-info' %></td>
   </tr>
 <% end %>

@@ -1,0 +1,62 @@
+<div class="container">
+	<div class = "row-fluid">
+		<div class = "span12">
+			<div class="navbar">
+	  		<div class="navbar-inner">
+				<ul class="nav">
+					<li>MOVIES R US</li>
+					<li class=<%= 'active' if current_page?(movies_path) %>><%= link_to 'All Movies', movies_path, class:'active' %></li>
+					<% if user_signed_in? %>
+						<li class=<%= 'active' if current_page?(new_movie_path) %>><%= link_to 'Submit Movie', new_movie_path %></li>
+						<li class=<%= 'active' if current_page?(user_path(current_user)) %>><%= link_to 'User Home', user_path(current_user), class:'active' %></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+<% if false %>
+<header>
+	<div class='row span12'>
+		<div class='header-bar'>
+			<div class='span4'>
+				REVIEWS-R-US
+			</div>
+			<div class='span2'>
+				<% if signed_in? %>
+					<%= link_to "Submit Movie", new_movie_path, :class => 'btn btn-large btn-primary' %>
+				<% end %>
+			</div>
+			<div class='span2'>
+				<% if signed_in? %>
+					<%= link_to "Go To My Page", user_path, :class => 'btn btn-large btn-primary' %>
+				<% end %>
+			</div>
+
+
+			<div class='span4'>
+				<% if signed_in? %>
+				<%= "Signed in as #{current_user.email}" %>
+				<%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+				<% else %>
+				<%= link_to "Sign In", new_user_session_path %>
+				<%= link_to "Sign Up", new_user_registration_path %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</header>
+<div class='row'>
+	<div class=' span12'>
+	</div>
+</div>
+<% end %>

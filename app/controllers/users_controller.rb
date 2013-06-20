@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @last_3_movies_viewed = MovieView.order('created_at DESC')
                               .where("user_id = ?", @user.id).limit(3)
     @last_3_reviews_viewed = ReviewView.order('created_at DESC').where("user_id = ?",@user.id).limit(3)
-
 	end
 
 end
