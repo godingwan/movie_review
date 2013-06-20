@@ -8,4 +8,12 @@ class Review < ActiveRecord::Base
   has_many :review_likes
 
   validates_presence_of :body, :score, :contributor_id, :movie_id
+
+  def add_recent_review_view(user)
+  	@review_view = review_views.build
+  	@review_view.user = user
+  	@review_view.save
+  end
+
+
 end
