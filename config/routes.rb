@@ -1,5 +1,7 @@
 MovieReview::Application.routes.draw do
+
   root :to => "movies#index"
+
 
   devise_for :users
 
@@ -16,6 +18,10 @@ MovieReview::Application.routes.draw do
   resources :review_views
 
   resources :users
+
+  namespace :admin do
+    resources :users
+  end
   # resources :users, :controller => "users"
 
 
