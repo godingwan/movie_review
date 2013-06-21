@@ -10,7 +10,8 @@
 			<p>Director:  <%= @movie.director %></p>
 			<p>Summary:  <%= @movie.summary %></p>
 
-			<p><%= @movie.movie_likes.count %> users have liked this movie.</p>
+			<p><%= @movie.movie_likes.count %> users have liked this movie.</p>\
+
 			<p><%= render "movie_likes/form" %></p>
 
 	    <table class="table table-striped">
