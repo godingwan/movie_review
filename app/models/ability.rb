@@ -9,8 +9,10 @@ class Ability
         can :manage, :all
       elsif user.role == 'user'
         can :manage, [Movie, MovieLike, MovieView, Review, ReviewView, ReviewLike, User]
+        cannot :manage, [Admin]
       else
         can :read, :all
+        cannot :manage, [Admin]
       end
     #
     # The first argument to `can` is the action you are giving the user

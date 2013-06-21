@@ -16,13 +16,15 @@
   <%= flash[:notice] %>
 <% end %>
 
+<% if flash[:alert] %>
+  <%= flash[:alert] %>
+<% end %>
+
 <% if user_signed_in? %>
   <p><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></p>
 <% end %>
 
 <%= yield %>
-
-<%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>

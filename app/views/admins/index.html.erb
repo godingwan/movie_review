@@ -1,0 +1,30 @@
+<h2>Movie Statistics</h2>
+<table>
+	<tr>
+		<td>Movie Title</td>
+		<td># of Likes</td>
+		<td># of Reviews</td>
+	</tr>
+	<% @movie.each do |movie| %>
+	<tr>
+		<td><%= movie.title %></td>
+		<td><%= movie.movie_likes.all.count %> Likes</td>
+		<td><%= movie.reviews.all.count %> Reviews</td>
+	</tr>
+	<% end %>
+</table>
+<br />
+
+<h2>Review Statistics</h2>
+<table>
+	<tr>
+		<td>Review Body</td>
+		<td># of Likes</td>
+	</tr>
+	<% @review.each do |review| %>
+	<tr>
+		<td><%= review.body %></td>
+		<td><%= review.review_likes.all.count %> Likes</td>
+	</tr>
+	<% end %>
+</table>

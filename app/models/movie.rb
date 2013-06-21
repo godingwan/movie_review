@@ -15,4 +15,8 @@ class Movie < ActiveRecord::Base
     @movie_view.user = user
     @movie_view.save
   end
+
+  def self.most_recent_added(count)
+    Movie.order('created_at DESC').limit(count)
+  end
 end

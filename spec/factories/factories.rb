@@ -29,6 +29,7 @@ FactoryGirl.define do
     sequence(:email) { |n| "user#{n}@exmaple.com" }
     password "123456789"
     password_confirmation "123456789"
+    role "user"
   end
 
   factory :movie_like do
