@@ -15,5 +15,8 @@ class Review < ActiveRecord::Base
   	@review_view.save
   end
 
+  def self.most_recent_for(user, count=3)
+    ReviewView.order('created_at DESC').where("user_id = ?", user.id).limit(count)
+  end
 
 end
